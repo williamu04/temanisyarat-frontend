@@ -92,12 +92,14 @@ export function ActionButton({
   children,
   tone,
   arrow = false,
+  large = false,
   className,
 }: {
   href: string;
   children: ReactNode;
   tone: "dark" | "blue" | "light";
   arrow?: boolean;
+  large?: boolean;
   className?: string;
 }) {
   const toneClasses = {
@@ -106,13 +108,25 @@ export function ActionButton({
     light: "bg-white text-[#0000cc] ring-1 ring-inset ring-[#0000cc]/15 hover:bg-[#f7f8ff]",
   };
 
+  const arrowClasses = {
+    dark: arrow ? "brightness-200" : "",
+    blue: arrow ? "brightness-0 invert" : "",
+    light: arrow ? "" : "",
+  };
+
   return (
     <SmartLink
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[16px] font-medium leading-none transition-colors ${toneClasses[tone]} ${className ?? ""}`}
+      className={`inline-flex items-center justify-center rounded-full font-medium leading-none transition-colors ${toneClasses[tone]} ${className ?? ""} ${large ? "px-10 py-6 text-[20px] gap-4" : "px-6 py-4 text-[16px] gap-2"}`}
     >
       <span>{children}</span>
-      {arrow ? <InlineImage src={arrowForward} alt="" className="h-3.5 w-3.5 shrink-0" /> : null}
+      {arrow && (
+        <InlineImage 
+          src={arrowForward} 
+          alt="" 
+          className={`shrink-0 transition-colors ${arrowClasses[tone]} ${large ? "h-6 w-6" : "h-4 w-4"}`}
+        />
+      )}
     </SmartLink>
   );
 }
@@ -132,7 +146,7 @@ export function SectionTitle({ children, accent = true }: { children: ReactNode;
 export function SiteHeader() {
   return (
     <header className="border-b border-black/5 bg-white">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-4 sm:px-10 lg:px-32">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-4 sm:px-10 lg:px-32 md:py-6">
         <SmartLink href="/" className="inline-flex shrink-0 items-center">
           <InlineImage src={logoGroupSmall} alt="TemanIsyarat" className="h-auto w-[140px]" />
         </SmartLink>

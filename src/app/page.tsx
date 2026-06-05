@@ -74,7 +74,7 @@ export default function Home() {
 
       <main className="flex-1">
         <section className="overflow-hidden bg-[#e5e8fa]" aria-label="Hero">
-          <div className="mx-auto flex max-w-[1440px] flex-col items-center px-6 pb-10 pt-10 sm:px-10 lg:px-32 lg:pt-16">
+          <div className="mx-auto flex max-w-[1440px] flex-col items-center px-6 pt-10 sm:px-10 lg:px-32 lg:pt-16 lg:gap-4 md:gap-2.5 gap-1.5">
             <InlineImage src={logoGroupSmall} alt="TemanIsyarat" className="h-auto w-[140px]" />
 
             <div className="mt-6 flex max-w-4xl flex-col items-center gap-6 text-center lg:mt-8">
@@ -95,7 +95,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-10 flex w-full justify-center lg:mt-4">
+            <div className="mt-6 flex w-4/5 justify-center md:mt-8 lg:mt-12">
               <div className="hidden w-full max-w-6xl md:block">
                 <InlineImage
                   src={desktopHero}
@@ -147,12 +147,12 @@ export default function Home() {
         <section className="mx-auto max-w-[1440px] px-6 pb-16 sm:px-10 lg:px-32 lg:pb-20">
           <div className="grid gap-6 lg:grid-cols-3">
             {featureCards.map((card) => (
-              <article key={card.title} className="rounded-[24px] bg-[#e5e8fa] p-10 text-center lg:text-left">
-                <div className="flex h-full min-h-[301px] flex-col justify-between gap-6">
+              <article key={card.title} className="rounded-[24px] bg-[#e5e8fa] p-10 text-left">
+                <div className="flex h-full min-h-60 md:min-h-52 lg:min-h-80 flex-col justify-between sm:gap-3 lg:gap-8">
                   <h3 className="text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-none text-[#111111]">
                     {card.title}
                   </h3>
-                  <p className="text-[14px] leading-[1.5] text-[#111111]">{card.body}</p>
+                  <p className="text-[16px] md:text-lg leading-[1.5] text-[#111111]">{card.body}</p>
                 </div>
               </article>
             ))}
@@ -161,7 +161,7 @@ export default function Home() {
 
         <section className="bg-[#e5e8fa]">
           <div className="mx-auto max-w-[1440px] px-6 py-14 sm:px-10 lg:px-32 lg:py-16">
-            <p className="mx-auto max-w-5xl text-center text-[clamp(1.5rem,3vw,2rem)] leading-[1.3] text-[#111111]">
+            <p className="mx-auto max-w-5xl text-center text-[clamp(1.5rem,3vw,2rem)] leading-[1.5] text-[#111111]">
               <span className="text-[#0000cc]">
                 Teknologi bahasa isyarat saat ini sering kali &quot;buta dialek&quot; karena hanya dilatih
                 menggunakan varietas kota besar tertentu.
@@ -189,18 +189,18 @@ export default function Home() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {processCards.map((card) => (
-              <article key={card.title} className="rounded-[24px] bg-[#e5e8fa] p-10 text-center lg:text-left">
-                <div className="flex h-full min-h-[301px] flex-col justify-between gap-6">
+              <article key={card.title} className="rounded-[24px] bg-[#e5e8fa] p-10 text-left">
+                <div className="flex h-full min-h-60 md:min-h-44 lg:min-h-80 flex-col justify-between sm:gap-3 lg:gap-8">
                   <h3 className="text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-none text-[#111111]">
                     {card.title}
                   </h3>
-                  <p className="text-[14px] leading-[1.5] text-[#111111]">{card.body}</p>
+                  <p className="text-[16px] md:text-lg leading-[1.5] text-[#111111]">{card.body}</p>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-8 flex justify-center lg:justify-end">
+          <div className="mt-8 flex justify-center md:justify-end">
             <ActionButton href="/artikel" tone="blue" arrow>
               Baca Lebih Lanjut
             </ActionButton>
@@ -210,14 +210,14 @@ export default function Home() {
         <section id="dataset" className="mx-auto max-w-[1440px] px-6 py-16 sm:px-10 lg:px-32 lg:py-20">
           <SectionTitle accent={false}>Dataset</SectionTitle>
 
-          <div className="mt-10 rounded-[64px] bg-[#e5e8fa] px-6 py-8 lg:px-16 lg:py-16">
+          <div className="mt-10 rounded-[24px] bg-[#e5e8fa] px-6 py-8 lg:px-16 lg:py-16">
             <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
-              <p className="max-w-4xl text-[clamp(1.5rem,3vw,2rem)] leading-[1.3] text-[#111111]">
+              <p className="max-w-4xl flex-1 text-[clamp(1.5rem,3vw,2rem)] leading-[1.3] text-[#111111]">
                 <span className="text-[#0000cc]">Dapatkan akses ke dataset TemanIsyarat</span>
                 {" yang terdiri dari 500 gestur yang telah dilabeli."}
               </p>
 
-              <ActionButton href="https://github.com/temanisyarat/dataset" tone="dark" arrow>
+              <ActionButton href="https://github.com/temanisyarat/dataset" tone="dark" arrow large>
                 Ke Dataset
               </ActionButton>
             </div>
@@ -228,7 +228,7 @@ export default function Home() {
           <SectionTitle accent={false}>Profil Tim Pengembang</SectionTitle>
 
           <div className="mt-10 rounded-[64px] bg-[#e5e8fa] px-6 py-8 lg:px-16 lg:py-16">
-            <div className="grid justify-items-center gap-6 lg:justify-items-start lg:grid-cols-[repeat(2,minmax(0,272px))_1fr] lg:items-end">
+            <div className="grid justify-items-center gap-6 lg:justify-items-start lg:grid-cols-[repeat(2,minmax(0,272px))_1fr] lg:items-middle">
               {teamCards.map((card) => (
                 <article key={card.title} className="w-full max-w-[272px] rounded-[24px] bg-white p-6 text-center lg:text-left">
                   <div className="flex flex-col gap-6">
@@ -253,8 +253,8 @@ export default function Home() {
                 </article>
               ))}
 
-              <div className="flex justify-center lg:justify-end">
-                <ActionButton href="/tentang" tone="dark" arrow>
+              <div className="flex justify-center mt-4 lg:justify-left">
+                <ActionButton href="/tentang" tone="dark" arrow large>
                   Lihat Semua
                 </ActionButton>
               </div>
