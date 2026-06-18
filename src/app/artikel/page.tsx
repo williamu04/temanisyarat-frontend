@@ -5,6 +5,21 @@ import { Pagination } from "@/components/pagination";
 import { SectionTitle, SiteFooter, SiteHeader } from "@/components/page-chrome";
 import { excerptFromArticle } from "@/lib/articles";
 import { getArticles } from "@/lib/sanity";
+import placeholderImg from "../../../assets/placeholders/placeholder.jpg";
+import cheersImg from "../../../assets/placeholders/cheers.jpg";
+import work1Img from "../../../assets/placeholders/work1.jpg";
+import work2Img from "../../../assets/placeholders/work2.jpg";
+import happy1Img from "../../../assets/placeholders/happy1.jpg";
+import meetingImg from "../../../assets/placeholders/meeting.jpg";
+
+const placeholders = [
+  placeholderImg,
+  cheersImg,
+  work1Img,
+  work2Img,
+  happy1Img,
+  meetingImg,
+];
 
 export const dynamic = "force-dynamic";
 
@@ -21,7 +36,7 @@ type ArticleListItem = {
   readTime: number;
   href: string;
   highlighted: boolean;
-  imageUrl?: string;
+  imageUrl?: any;
   date?: string;
 };
 
@@ -44,10 +59,13 @@ export default async function ArticlesPage() {
           readTime: article.readingTime ?? 3,
           href: `/artikel/${article.slug ?? "tentang-gerkatin"}`,
           highlighted: index === 0,
-          imageUrl: article.imageUrl,
+          imageUrl: placeholders[index % placeholders.length],
           date: article.date,
         }))
-      : fallbackCards;
+      : fallbackCards.map((card, index) => ({
+          ...card,
+          imageUrl: placeholders[index % placeholders.length],
+        }));
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#111111]">
@@ -58,9 +76,9 @@ export default async function ArticlesPage() {
           <SectionTitle>Artikel</SectionTitle>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {cards.map((card) => (
+            {cards.map((card, index) => (
               <ArticleCard
-                key={`${card.href}-${card.highlighted ? "featured" : "default"}`}
+                key={`${card.href}-${card.highlighted ? "featured" : "default"}-${index}`}
                 title={card.title}
                 excerpt={card.excerpt}
                 href={card.href}

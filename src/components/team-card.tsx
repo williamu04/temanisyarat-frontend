@@ -6,7 +6,7 @@ import { InlineImage } from "@/components/page-chrome";
 export type TeamCardProps = {
   name: string;
   role: string;
-  imageUrl?: string;
+  imageUrl?: any;
 };
 
 export function TeamCard({ name, role, imageUrl }: TeamCardProps) {

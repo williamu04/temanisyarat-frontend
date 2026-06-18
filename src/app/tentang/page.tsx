@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { TeamCard } from "@/components/team-card";
 import { SectionTitle, SiteFooter, SiteHeader } from "@/components/page-chrome";
 import { getAuthors } from "@/lib/sanity";
+import memberWilli from "../../../assets/members/willi.png";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 type TeamMember = {
   name: string;
   role: string;
-  imageUrl?: string;
+  imageUrl?: any;
 };
 
 const fallbackTeam: TeamMember[] = Array.from({ length: 9 }, () => ({
@@ -29,9 +30,12 @@ export default async function AboutPage() {
       ? authors.map((author) => ({
           name: author.name,
           role: author.bio || "Anggota Tim",
-          imageUrl: author.imageUrl,
+          imageUrl: memberWilli,
         }))
-      : fallbackTeam;
+      : fallbackTeam.map((member) => ({
+          ...member,
+          imageUrl: memberWilli,
+        }));
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#111111]">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import logoGroupSmall from "../../assets/logo/Logo Group small.svg";
+import logoGroupSmall from "../../assets/logo/logo-group-small.svg";
 import arrowForward from "../../assets/web/icons/arrow-forward.svg";
 import hamburgerMenu from "../../assets/web/icons/hamburger-menu.svg";
 import instagramLogo from "../../assets/web/icons/instagram-logo.svg";
@@ -237,7 +237,7 @@ export function ArticleDetailFooter() {
             <div className="space-y-4">
               <p className="text-[16px] font-semibold leading-none text-[#111111]">Get in Touch</p>
               <div className="flex items-center gap-4">
-                <SocialIconLink href="#" src={instagramLogo} label="Instagram TemanIsyarat" />
+                <SocialIconLink href="https://www.instagram.com/temanisyarat.uns/" src={instagramLogo} label="Instagram TemanIsyarat" />
                 <SocialIconLink href="#" src={whatsappLogo} label="WhatsApp TemanIsyarat" />
                 <SocialIconLink
                   href="https://github.com/temanisyarat"
@@ -271,7 +271,7 @@ export function SiteFooter() {
           <div className="space-y-5">
             <p className="px-3 text-[16px] font-semibold leading-none text-[#111111]">Get in Touch</p>
             <div className="flex items-center gap-4 px-3">
-              <SocialIconLink href="#" src={instagramLogo} label="Instagram TemanIsyarat" />
+              <SocialIconLink href="https://www.instagram.com/temanisyarat.uns/" src={instagramLogo} label="Instagram TemanIsyarat" />
               <SocialIconLink href="#" src={whatsappLogo} label="WhatsApp TemanIsyarat" />
               <SocialIconLink href="https://github.com/temanisyarat" src={githubLogo} label="GitHub TemanIsyarat" />
             </div>
