@@ -9,7 +9,7 @@ export type ArticleCardProps = {
   excerpt: string;
   href: string;
   highlighted?: boolean;
-  imageUrl?: string;
+  imageUrl?: any;
   date?: string;
   readingTime?: number;
 };

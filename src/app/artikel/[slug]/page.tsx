@@ -3,6 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import detailIllustration from "../../../../assets/illustrations/illustration-medium.svg";
+import cheersImg from "../../../../assets/placeholders/cheers.jpg";
+import gerkatinPlaceholderImg from "../../../../assets/placeholders/gerkatin-placeholder.jpg";
 import {
   ActionButton,
   ArticleDetailFooter,
@@ -51,9 +53,10 @@ export default async function ArticleInstancePage({ params }: PageProps) {
   const title = article?.article ?? "Tentang GERKATIN";
   const subtitle = article?.categoryName ?? "Artikel";
   const description = article ? excerptFromArticle(article, fallbackExcerpt) : fallbackExcerpt;
+  const isGerkatin = slug === "tentang-gerkatin";
   const bodyParagraphs = blocksToParagraphs(article?.content ?? []);
   const contentParagraphs = bodyParagraphs.length > 0 ? bodyParagraphs : fallbackParagraphs;
-  const heroImageUrl = article?.imageUrl;
+  const heroImageUrl = isGerkatin ? cheersImg : article?.imageUrl;
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-[#111111]">
@@ -105,7 +108,19 @@ export default async function ArticleInstancePage({ params }: PageProps) {
               </p>
             ))}
 
-            <div className="h-[281px] w-full rounded-[16px] bg-[#c6c6c6]" aria-hidden />
+            {isGerkatin ? (
+              <div className="relative h-[281px] w-full overflow-hidden rounded-[16px]">
+                <Image
+                  src={gerkatinPlaceholderImg}
+                  alt="Tentang GERKATIN"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 680px"
+                />
+              </div>
+            ) : (
+              <div className="h-[281px] w-full rounded-[16px] bg-[#c6c6c6]" aria-hidden />
+            )}
 
             {contentParagraphs.slice(3).map((paragraph, index) => (
               <p

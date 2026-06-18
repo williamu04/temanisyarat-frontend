@@ -4,7 +4,9 @@ import desktopHero from "../../assets/web/images/web-desktop-landing-page-image.
 import mobileHero from "../../assets/web/images/mobile-ui-beranda.webp";
 import articlePreview from "../../assets/web/images/mobile-ui-artikel.webp";
 import illustrationMedium from "../../assets/illustrations/illustration-medium.svg";
-import logoGroupSmall from "../../assets/logo/Logo Group small.svg";
+import logoGroupSmall from "../../assets/logo/logo-group-small.svg";
+import cheersPlaceholder from "../../assets/placeholders/cheers.jpg";
+import memberWilli from "../../assets/members/willi.png";
 import {
   ActionButton,
   InlineImage,
@@ -56,13 +58,13 @@ const teamCards = [
   {
     title: "Yang Bener Aja",
     role: "Dosen Pembimbing",
-    image: articlePreview,
+    image: memberWilli,
     imagePosition: "center top",
   },
   {
     title: "Dunhill William",
     role: "Ketua Tim",
-    image: desktopHero,
+    image: memberWilli,
     imagePosition: "center right",
   },
 ] as const;
@@ -120,7 +122,7 @@ export default function Home() {
 
           <div className="mt-10 grid items-center gap-10 text-center lg:text-left lg:grid-cols-[305px_minmax(0,1fr)]">
             <div className="flex justify-center">
-              <div className="flex w-full max-w-[305px] items-center justify-center rounded-[32px] bg-[#e5e8fa] p-3">
+              <div className="flex w-full max-w-[305px] items-center justify-center rounded-[32px] bg-[#eaeaea] p-3">
                 <InlineImage
                   src={illustrationMedium}
                   alt="Ilustrasi TemanIsyarat"
@@ -159,8 +161,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#e5e8fa] h-screen flex items-center">
-          <div className="mx-auto max-w-[1440px] px-6 py-14 sm:px-10 lg:px-32 lg:py-16">
+        <section className="bg-[#e5e8fa] py-16 lg:py-24">
+          <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-32">
             <p className="mx-auto max-w-5xl text-center text-[clamp(1.25rem,3vw,2rem)] leading-[1.5] text-[#111111]">
               <span className="text-[#0000cc]">
                 Teknologi penerjemah bahasa isyarat saat ini sering kali &quot;buta dialek&quot; karena hanya dilatih
@@ -201,7 +203,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 flex justify-center md:justify-end">
-            <ActionButton href="/artikel" tone="blue" arrow>
+            <ActionButton href="/proses-pengembangan" tone="blue" arrow>
               Baca Lebih Lanjut
             </ActionButton>
           </div>
@@ -270,7 +272,15 @@ export default function Home() {
 
           <div className="mt-10 grid items-center gap-10 text-center lg:text-left lg:grid-cols-[305px_minmax(0,1fr)]">
             <div className="flex justify-center">
-              <div className="h-[354px] w-full max-w-[305px] rounded-[32px] bg-[#eaeaea]" />
+              <div className="relative h-[354px] w-full max-w-[305px] overflow-hidden rounded-[32px] bg-[#eaeaea]">
+                <Image
+                  src={cheersPlaceholder}
+                  alt="Tentang GERKATIN"
+                  fill
+                  className="object-cover"
+                  sizes="305px"
+                />
+              </div>
             </div>
 
             <div className="flex flex-col items-center gap-6 lg:items-start">
